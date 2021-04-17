@@ -22,7 +22,7 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 
 		//Cambie el valor de la variable option: EXAMPLE para resolver el ejemplo y FILE para resolver los casos de prueba
-		int option = EXAMPLE;
+		int option = FILE;
 		String input = "";
 		String output = "";
 		switch(option) {
@@ -47,15 +47,17 @@ public class Main {
 
 
 		//n = number of disks for each problem
+		int count = 0;
 		for (int i = 0; i < m; i++) {
 			int n = Integer.parseInt(objReader.readLine());
 			moves[0]= n;
 			System.out.println(moves[0]+ " "+moves[1]+ " "+moves[2]);
 			objWriter.println(moves[0]+ " "+moves[1]+ " "+moves[2]);
+			count++;
 
 			organizeDisks(n, firstPivot, lastPivot, tempPivot);
 
-			if(n == m) {
+			if(count == m) {
 				objReader.close();
 				objWriter.close();
 			}else {
